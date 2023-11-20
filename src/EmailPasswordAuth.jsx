@@ -54,8 +54,11 @@ const EmailPasswordAuth = ({ onSignIn }) => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+        <div className='email-button'>
         <button onClick={handleSignIn}>Sign In</button>
-        <button onClick={handleSignUp}>Sign Up</button>
+        <button onClick={handleSignUp}>Sign Up</button>            
+        </div>
+
         {userLoggedIn && <p>User logged in!</p>}        
       </div>
     </div>
