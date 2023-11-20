@@ -1,0 +1,32 @@
+.App {
+  text-align: center;
+  padding: 20px;
+}
+.inputs{
+  display: flex;
+  flex-direction: column;
+}
+.email-input{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.email-input input{
+  height: 40px;
+  width: 200px;
+}
+.email-button button{
+  height: 30px;
+  width: 100px;
+}
+.email-button{
+  display: flex;
+  gap: 4px;
+}
+
+.main{
+  display: flex;
+  justify-content: space-between;
+  margin: 100px 300px 100px;
+  align-items: center;
+}
