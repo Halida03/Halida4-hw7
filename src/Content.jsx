@@ -1,9 +1,13 @@
 import React from 'react';
+import List from './components/list';
+import { Link } from 'react-router-dom';
 
-const Content = () => {
+const Content = ({ products, handleLikeClick, likedProduct }) => {
   return (
     <div>
-      <h2>Добро пожаловать!</h2>
+      <h2>Content</h2>
+      <List handleLikeClick={handleLikeClick} products={products} likedProduct={likedProduct} />
+      <Link to="/modal">Go to Modal</Link>
     </div>
   );
 };
