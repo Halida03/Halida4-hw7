@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { Route, Link, Routes } from 'react-router-dom';
 import { TbDeviceTabletHeart } from 'react-icons/tb';
-import List from './components/list';
 import Modal from './components/modal';
 import AuthContainer from './AuthContainer';
-import Content from './Content'; 
+import Content from './Content';
 import axios from 'axios';
+import './App.css';
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -32,21 +32,29 @@ function App() {
     }
   };
 
+  const handleSignIn = () => {
+    setUserLoggedIn(true);
+  };
+
   return (
-    <Router>
-      <div className='App'>
-        <h2>Products list</h2>
-        <Routes>
-          <Route path="/" element={<Content products={products} handleLikeClick={handleLikeClick} likedProduct={likedProduct} />} />
-          <Route path="/modal" element={<Modal />} />
-          <Route path="/auth" element={<AuthContainer onSignIn={() => setUserLoggedIn(true)} />} />
-        </Routes>
-        {userLoggedIn && <p>User logged in!</p>}
-        <Link to="/modal">
-          <TbDeviceTabletHeart className='Liked' />
-        </Link>
+    <div className='App'>
+        {userLoggedIn ? (
+        <>
+          <Routes>
+            <Route
+              path="/"
+              element={<Content products={products} handleLikeClick={handleLikeClick} likedProduct={likedProduct} userLoggedIn={userLoggedIn} />}
+            />
+            <Route path="/modal" element={<Modal />} />
+          </Routes>
+          <Link to="/modal">
+            <TbDeviceTabletHeart className='Liked' />
+          </Link>
+        </>
+      ) : (
+        <AuthContainer onSignIn={handleSignIn} />
+      )}      
       </div>
-    </Router>
   );
 }
 

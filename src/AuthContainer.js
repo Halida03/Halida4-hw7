@@ -1,7 +1,6 @@
 import React from 'react';
 import EmailPasswordAuth from './EmailPasswordAuth';
 import GoogleAuth from './GoogleAuth';
-import Content from './Content';
 
 const AuthContainer = ({ onSignIn }) => {
   return (

@@ -1,7 +1,8 @@
 import React from 'react'
-import { FaHeart } from "react-icons/fa6";
+import { IoIosHeartEmpty } from "react-icons/io";
 
-const list = ({handleLikeClick, products, likedProduct}) => {
+const List = ({ handleLikeClick, products, likedProduct, userLoggedIn }) => {
+  console.log(products);
   return (
     <div>
       <ul className='products'>
@@ -12,7 +13,7 @@ const list = ({handleLikeClick, products, likedProduct}) => {
             <p>{product.description}</p>
             <p>Price: ${product.price}</p>
             <p>Category: {product.category}</p>
-            <FaHeart
+            <IoIosHeartEmpty
               className="icon-heart"
               style={{ color: likedProduct.includes(product.id) ? 'red' : 'inherit' }}
               onClick={() => handleLikeClick(product.id)}/>
@@ -23,4 +24,4 @@ const list = ({handleLikeClick, products, likedProduct}) => {
   )
 }
 
-export default list; 
+export default List; 
